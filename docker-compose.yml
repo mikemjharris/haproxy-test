@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  python: 
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+
+  haproxy:
+    build: .
+    ports:
+      - "8002:8002"
+    
