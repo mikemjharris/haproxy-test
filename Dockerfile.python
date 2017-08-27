@@ -4,6 +4,10 @@ RUN apt-get update
 RUN apt-get -y install python
 RUN apt-get clean
 
+RUN mkdir /var/www
+
+WORKDIR /var/www
+
 RUN echo 'test' > test.txt
 
 EXPOSE 8000
