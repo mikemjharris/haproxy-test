@@ -1,4 +1,5 @@
-FROM haproxy:1.7
+FROM haproxy:1.7.9
+#FROM fingershock/haproxy-base
 
 RUN mkdir -p /usr/local/etc/haproxy/
 

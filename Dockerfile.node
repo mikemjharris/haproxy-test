@@ -1,8 +1,4 @@
-FROM ubuntu
-
-RUN apt-get update
-RUN apt-get -y install python
-RUN apt-get clean
+FROM node:6.9
 
 RUN mkdir /var/www
 
@@ -14,8 +10,9 @@ RUN echo 'test' > test.css
 RUN mkdir static-assets
 RUN echo 'test' > ./static-assets/test2.txt
 RUN echo 'test' > ./static-assets/test2.css
-RUN echo 'test' > ./static-assets/test2.html
+
+RUN npm install -g http-server
 
 EXPOSE 8000
 
-CMD [ "python", "-m", "SimpleHTTPServer" ]
+CMD [ "http-server", "-p", "8000" ]
