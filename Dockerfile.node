@@ -13,6 +13,6 @@ RUN echo 'test' > ./static-assets/test2.css
 
 RUN npm install -g http-server
 
-EXPOSE 8000
+EXPOSE 8001
 
-CMD [ "http-server", "-p", "8000" ]
+CMD [ "http-server", "-p", "8001" ]

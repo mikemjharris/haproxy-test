@@ -4,6 +4,10 @@ services:
   python: 
     build:
       context: .
+      dockerfile: Dockerfile.python
+  node: 
+    build:
+      context: .
       dockerfile: Dockerfile.node
 
   haproxy:
