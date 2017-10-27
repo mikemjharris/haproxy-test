@@ -4,17 +4,19 @@ Experiment playing around with haproxy for routing
 
 ## Setup steps
 
-You will need ha proxy installed.  On mac:  
-`brew install haproxy`
+Runs in docker container run:
+`docker-compose build && docker-compose up`
 
-We want to start ha proxy with the  config file we have supplied:
-`haproxy -f haproxy.cfg`
+The current setup is to show the python simple server doesn't send back right headers/protocol (believe it responds with http 1.0) so haproxy doesn't gzip the response.
 
-This will run on port 8000.  So visit http://127.0.0.1:8000.  At the moment the only file that exists is at: http://127.0.0.1:8000/static-assets/test.txt
+Python simple server backend with haproxy trying to gzip - doesn't work
+http://localhost:8002/gzip-broke/test.txt
 
-In this example so far we route all requests to an s3 bucket for now.
+Node server backend with haproxy trying to gzip - works
+http://localhost:8002/gzip-broke/test.txt
 
-## Todo
+S3 backend with haproxy trying to gzip - works
+http://localhost:8002/gzip-yes/test.txt
 
-Add in other routes and some test backends to play around with haproy routing.
-
+S3 backend with haproxy not trying to gzip - works as expected (no gzip)
+http://localhost:8002/gzip-yes/test.txt
